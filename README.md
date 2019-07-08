@@ -42,8 +42,9 @@ You need the following to work on the project: -
 
 ### Create and activate the virtual environment
 
-- `$ python -m venv virtual`
-- `$ source virtual/bin/activate`
+- `$ python -m venv venv`
+- `$ source venv/bin/activate` or `venv\scripts\activate`(Windows)
+
 
 
 ### Install the dependencies found in the  requirements.txt file
