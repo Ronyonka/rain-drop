@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+<script>
+    {% block jquery %}
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels:[
+            {% for r in rain%}
+            {% if forloop.last %}
+            "{{ r.date}}"
+            {% else %}
+            "{{ r.date}}",
+            {% endif %}
+            {% endfor %}
+        ],
+        datasets: [{
+            label: 'Rain(mm)',
+            fill:false,
+            data: [
+                {% for r in rain %}
+                {% if forloop.last %}
+                "{{ r.amount }}"
+                {% else %}
+                "{{r.amount}}",
+                {% endif %}
+                {% endfor %}
+            ],
+            borderColor: 'blue',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+                    display: true,
+                    text: "Rainfall Time series Chart"
+                },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    {% endblock %}
+    </script>
+
+{% block content %}
+<h1>Hello World</h1>
+{% for r in rain %}
+<p> <b>{{r.amount}}mm</b> of rain fell on {{r.date}} </p>
+{% endfor %}
+<div class="col-8"><canvas id="myChart" width="400" height="150"></canvas></div>
+<form method="POST" class="post-form" style="display: flex; ;justify-content: center;">
+    {% csrf_token %}
+    {% for field in form %}
+    {{field}}
+    {% endfor%}
+    <button type="submit" style="margin-left: 2em" class="">Submit</button>
+</form>
+<h5>Filters</h5>
+<form method="get">
+    <div class="input-group input-daterange">
+        <input type="date" name="startDate" class="form-control" value="{{ startDate }}">
+            <div class="input-group-addon">to</div>
+        <input type="date" name="endDate" class="form-control" value="{{ endDate }}">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{{ request.path }}" class="btn btn-warning">Reset Filters</a>
+</form>
+{% endblock content %}
