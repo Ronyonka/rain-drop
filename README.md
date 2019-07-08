@@ -1,49 +1,82 @@
-# Heroku Django Starter Template
-
-An utterly fantastic project starter template for Django 2.0.
-
-## Features
-
-- Production-ready configuration for Static Files, Database Settings, Gunicorn, etc.
-- Enhancements to Django's static file serving functionality via WhiteNoise.
-- Latest Python 3.6 runtime environment.
-
-## How to Use
-
-To use this project, follow these steps:
-
-1. Create your working environment.
-2. Install Django (`$ pipenv install django`)
-3. Create a new project using this template
-
-## Creating Your Project
-
-Using this template to create a new Django app is easy::
-
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/master.zip --name=Procfile helloworld
-
-(If this doesn't work on windows, replace `django-admin.py` with `django-admin`)
-
-You can replace ``helloworld`` with your desired project name.
-
-## Deployment to Heroku
-
-    $ git init
-    $ git add -A
-    $ git commit -m "Initial commit"
-
-    $ heroku create
-    $ git push heroku master
-
-    $ heroku run python manage.py migrate
-
-See also, a [ready-made application](https://github.com/heroku/python-getting-started), ready to deploy.
+# RainDrop
+#### Date of Current Version (July 8th,2019)
+#### By **Ron Onyonka**
+## Description
+This is an app that takes in user data on rainfall and displays it on a chart
 
 
-## License: MIT
+## Behaviour Driven Development
+| Behaviour     | Input     | Output  |
+| ------------- |:-------------:| -----:|
+| Add rainfall Data| Users adds amount of rainfall in mm and the specific date| data is taken in and displayed on the chart |
+| Filter dates | User selects a range of dates for data they need| the data on the graph is then displayed for the selected range  |
 
-## Further Reading
 
-- [Gunicorn](https://warehouse.python.org/project/gunicorn/)
-- [WhiteNoise](https://warehouse.python.org/project/whitenoise/)
-- [dj-database-url](https://warehouse.python.org/project/dj-database-url/)
+## Link to Live Website 
+Here is a link to the live website: <https://rondrop.herokuapp.com/>
+
+
+### Technologies Used
+
+- HTML
+- CSS
+- Python(Django Framework)
+- Chart.js
+- Django
+
+## Setup/Installation Requirements
+
+
+### Prerequisites
+You need the following to work on the project: -
+* Python version 3
+* Pip 
+* venv 
+* A text Editor
+* git
+
+### Clone the repo and check into the project folder
+
+- `git clone https://github.com/Ronyonka/rain-drop`
+- `cd rain-drop`
+
+### Create and activate the virtual environment
+
+- `$ python -m venv virtual`
+- `$ source virtual/bin/activate`
+
+
+### Install the dependencies found in the  requirements.txt file
+
+```bash
+(virtual)$ pip install -r requirements.txt
+```
+
+
+
+### Make migrations
+
+
+- `(virtual)$ python manage.py makemigrations `
+- `(virtual)$ pytohon3.6 manage.py migrate`
+
+
+### Run `manage.py` in the terminal
+
+```bash
+(virtual)$ python manage.py runserver
+```
+
+## Known Bugs
+None at the moment.
+
+## License
+MIT License
+
+Copyright (c) 2019 Ron Onyonka
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sub-license, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
