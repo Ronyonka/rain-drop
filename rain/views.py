@@ -20,9 +20,8 @@ def home(request):
    rain = Rain.objects.all()
    rain = Rain.my_query.get_queryset().filter_by_date(date_start, date_end)
    form = RainForm(request.POST)
-   f = DateFilter(request.GET, queryset=Rain.objects.all())
    if request.method == 'GET':
-      return render(request, 'main.html', {"rain":rain, "form":form, 'filter': f})
+      return render(request, 'main.html', {"rain":rain, "form":form})
    if request.method == "POST":
       if form.is_valid():
          if  Rain.objects.filter(date = form.cleaned_data['date']).exists():
