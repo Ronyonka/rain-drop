@@ -69,7 +69,7 @@ You need the following to work on the project: -
 ```
 
 ## Known Bugs
-None at the moment.
+- Currently not responsive on different screen sizes. Currently working on that.
 
 ## License
 MIT License
