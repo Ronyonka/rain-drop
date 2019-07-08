@@ -30,8 +30,8 @@ Here is a link to the live website: <https://rondrop.herokuapp.com/>
 ### Prerequisites
 You need the following to work on the project: -
 * Python version 3
-* Pip 
-* venv 
+* Pip
+* venv/pipenv tool
 * A text Editor
 * git
 
