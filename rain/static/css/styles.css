@@ -32,3 +32,12 @@ body{
     color: #ffffff;
     border-radius: 10px;
 }
+.input{
+    border: none;
+    height: 3em;
+    text-align: center;
+    font-weight: 700;
+    background-color: #E5EAEE;
+    color: rgb(214, 207, 207);
+    border-radius: 8px;
+}

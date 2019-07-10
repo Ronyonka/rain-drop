@@ -61,9 +61,8 @@ var myChart = new Chart(ctx, {
         <div class="col-md-8">
                 <form method="POST" class="post-form" style="display: flex; justify-content: space-around;">
                         {% csrf_token %}
-                        {% for field in form %}
-                        {{field}}
-                        {% endfor%}
+                        <input type="date" class="input" value={{form.date }}
+                        <input type="number" class="input" placeholder="Rain (mm)" value={{ form.amount}}
                         <button type="submit" style="margin-left: 2em" id="btn">Submit</button>
                     </form>
         </div>
@@ -74,16 +73,24 @@ var myChart = new Chart(ctx, {
         <div class="col-8"><canvas id="myChart" width="400" height="150"></canvas></div>
         <div class="col-2"></div>
     </div>
+<div class="range-filter">
+    <div class="row" style="display: flex; justify-content:center; margin-top: 20px;">
 <h3>Filters</h3>
-<form method="get">
-    <div class="input-group input-daterange">
-        <input type="date" name="startDate" class="form-control" value="{{ startDate }}">
-            
-        <input type="date" name="endDate" style="margin-left: 1em;" class="form-control" value="{{ endDate }}">
-    </div>
-    <br>
-    <!-- <a href="https://ibb.co/M5jD3NK"><img src="https://i.ibb.co/YTK7qjJ/filter.png" alt="filter" border="0"></a> -->
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+<form method="get" style="display: flex; justify-content: space-around;  margin-top: 20px;">
+
+        <input type="date" name="startDate" class="input" value="{{ startDate }}">
+
+        <input type="date" name="endDate" class="input" value="{{ endDate }}">
+
     <button type="submit"   id="btn2"> Save</button>
-    <a href="{{ request.path }}" class="btn btn-outline-danger">Reset Filters</a>
+    <a href="{{ request.path }}" class="btn btn-outline-danger" style="text-align: center">Reset Filters</a>
 </form>
+</div>
+<div class="col-md-2"></div>
+</div>
+</div>
 {% endblock content %}
